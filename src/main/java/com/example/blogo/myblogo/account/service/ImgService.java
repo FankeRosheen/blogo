@@ -20,6 +20,7 @@ public class ImgService {
         try {
             User user = imgDao.findAllByName(userName);
             user.setHistoryImg(user.getHistoryImg() + user.getImg());
+            user.setImg(img);
             if (imgDao.save(user) == null){
                 return new ResponseMessage(false,"修改图片成功");
             }else {
