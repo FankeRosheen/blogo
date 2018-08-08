@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class User implements Serializable {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Integer id;
     @Column(name = "img")
     private String img;  //用户图像
