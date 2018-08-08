@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginDao extends CrudRepository<User, Integer> {
 
-    @Query(value = "select * from t_user where name = ?1 and password = ?2 and limit 1",nativeQuery = true)
+    @Query(value = "select * from t_user where name = ?1 and password = ?2 ", nativeQuery = true)
     User findAllByNameAndPassword(@Param("name") String name, @Param("password") String password);
-    User findByName(String name);//看看你的起名，有问题，看看hibernate的起名规范
+
+    @Query(value = "select * from t_user where name = ?1 ", nativeQuery = true)
+    User findAllByName(String name);
 }

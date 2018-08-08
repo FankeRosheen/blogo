@@ -10,31 +10,54 @@ public class User implements Serializable {
     @GeneratedValue
     private Integer id;
     @Column(name = "img")
-    private String img;
+    private String img;  //用户图像
     @Column(name = "name")
-    private String name;
+    private String name;  //用户名
     @Column(name = "password")
-    private String password;
+    private String password;  //密码
     @Column(name = "age")
-    private int age;
+    private Integer age;  //年龄
     @Column(name = "email")
-    private String email;
+    private String email;  //邮箱
     @Column(name = "phoneNumber")
-    private String phoneNumber;
+    private String phoneNumber;  //手机号码
     @Column(name = "gender")
-    private String gender;
+    private String gender;  //性别
     @Column(name = "IDCard")
-    private String IDCard;
+    private String IDCard;  //身份证
     @Column(name = "bankCard")
-    private String bankCard;
+    private String bankCard;  //银行卡
     @Column(name = "realName")
-    private String realName;
+    private String realName;  //真实姓名
     @Column(name = "address")
-    private String address;
+    private String address;  //地址
     @Column(name = "status")
-    private String status;
+    private String status;  //状态
     @Column(name = "passport")
-    private String passport;
+    private String passport;  //护照
+    @Column(name = "history_img")
+    private String historyImg;  //历史用户图像
+    @Column(name = "history_password")
+    private String historyPassword;  //历史密码
+
+    public String getHistoryImg() {
+        return historyImg;
+    }
+
+    public void setHistoryImg(String historyImg) {
+        this.historyImg = historyImg;
+    }
+
+
+    public String getHistoryPassword() {
+        return historyPassword;
+    }
+
+
+    public void setHistoryPassword(String historyPassword) {
+        this.historyPassword = historyPassword;
+    }
+
 
     public User() {
     }
@@ -59,7 +82,6 @@ public class User implements Serializable {
                 '}';
     }
 
-    
 
     public Integer getId() {
         return id;
@@ -93,11 +115,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

@@ -1,7 +1,7 @@
 package com.example.blogo.myblogo.account.controller;
 
-import com.example.blogo.myblogo.account.domain.User;
 import com.example.blogo.myblogo.account.service.LoginService;
+import com.example.blogo.myblogo.account.views.ResponseMessage;
 import com.example.blogo.myblogo.account.views.TotalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,21 +22,39 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    //有验证码的登录
+    /**
+     * 有验证码的登录
+     * @param userName
+     * @param password
+     * @param checkCode
+     * @return TotalUser
+     */
     @RequestMapping("loginWithCode")
-    public TotalUser login(@RequestParam String userNme, @RequestParam String password, @RequestParam String checkCode){
-        return loginService.login(userNme,password,checkCode);
+    public TotalUser login(@RequestParam String userName, @RequestParam String password, @RequestParam String checkCode){
+        return loginService.login(userName,password,checkCode);
     }
+
+    /**
+     * 有验证码的登录
+     * @param userName
+     * @param password
+     * @return TotalUser
+     */
     @RequestMapping("login")
-    public TotalUser login(@RequestParam String userNme,@RequestParam String password){
-       return loginService.login(userNme,password);
+    public TotalUser login(@RequestParam String userName,@RequestParam String password){
+       return loginService.login(userName,password);
     }
+
+    /**
+     * 注册用户
+     * @param userName
+     * @param password
+     * @param emial
+     * @return ResponseMessage
+     */
     @RequestMapping("register")
-    public TotalUser register(@RequestParam String userNme,@RequestParam String password,@RequestParam String emial){
-        return loginService.register(userNme,password,emial);
+    public ResponseMessage register(@RequestParam String userName, @RequestParam String password, @RequestParam String emial){
+        return loginService.register(userName,password,emial);
     }
-    @RequestMapping("img")
-    public User img(@RequestParam String userName){
-        return loginService.img(userName);
-    }
+
 }
