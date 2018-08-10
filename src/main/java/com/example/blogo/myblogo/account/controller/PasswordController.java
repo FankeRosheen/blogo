@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
 
 @RestController
 @RequestMapping("password")
 public class PasswordController {
     @Autowired
     private PasswordService passwordService;
+    Cookie cookie = new Cookie("code","checkCode");
 
     /**
      * 修改密码
@@ -31,12 +32,11 @@ public class PasswordController {
      * 忘记密码发送验证码
      * @param userName
      * @param email
-     * @param httpSession
      * @return
      */
     @RequestMapping("forgot")
-    public ResponseMessage forgotPassword(@RequestParam String userName, @RequestParam String email, @RequestParam HttpSession httpSession){
-        return passwordService.forgotPassword(userName,email,httpSession);
+    public ResponseMessage forgotPassword(@RequestParam String userName, @RequestParam String email){
+        return passwordService.forgotPassword(userName,email,cookie);
     }
 
     /**
@@ -44,11 +44,10 @@ public class PasswordController {
      * @param userName
      * @param code
      * @param password
-     * @param httpSession
      * @return
      */
     @RequestMapping("forgotChange")
-    public ResponseMessage forgotChange(@RequestParam String userName,@RequestParam String code,@RequestParam String password,@RequestParam HttpSession httpSession){
-        return passwordService.forgotChange(userName,code,password,httpSession);
+    public ResponseMessage forgotChange(@RequestParam String userName,@RequestParam String code,@RequestParam String password){
+        return passwordService.forgotChange(userName,code,password,cookie);
     }
 }
