@@ -56,5 +56,15 @@ public class LoginController {
     public ResponseMessage register(@RequestParam String userName, @RequestParam String password, @RequestParam String emial){
         return loginService.register(userName,password,emial);
     }
-
+    /**
+     * 用户名校验
+     * @param userName
+     * @param password
+     * @param emial
+     * @return ResponseMessage
+     */
+    @RequestMapping("check")
+    public ResponseMessage check(@RequestParam String userName, @RequestParam String password, @RequestParam String emial){
+        return loginService.check(userName,password,emial);
+    }
 }
