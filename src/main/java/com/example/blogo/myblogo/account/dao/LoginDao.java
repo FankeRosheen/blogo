@@ -14,4 +14,5 @@ public interface LoginDao extends CrudRepository<User, Integer> {
 
     @Query(value = "select * from t_user where name = ?1 ", nativeQuery = true)
     User findAllByName(String name);
+    User findByName(String userName);
 }
