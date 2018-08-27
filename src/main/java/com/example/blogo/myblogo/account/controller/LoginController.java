@@ -57,6 +57,7 @@ public class LoginController {
         return loginService.register(userName,password,emial);
     }
     /**
+<<<<<<< HEAD
      * 用户名校验
      * @param userName
      * @param password
@@ -67,4 +68,15 @@ public class LoginController {
     public ResponseMessage check(@RequestParam String userName, @RequestParam String password, @RequestParam String emial){
         return loginService.check(userName,password,emial);
     }
+=======
+     * 检查用户名可用性
+     * @param userName
+     * @return ResponseMessage
+     */
+    @RequestMapping("checkUserName")
+    public ResponseMessage checkUserName(@RequestParam String userName){
+        return loginService.checkUserName(userName);
+    }
+
+>>>>>>> 4e08d0551610ccfad2aeab111df76fcd46b504fa
 }

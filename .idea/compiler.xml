@@ -6,11 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="myblogo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myblogo" target="1.8" />
+=======
+        <module name="blogo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blogo" target="1.8" />
+      <module name="MyBlogo" target="1.8" />
+>>>>>>> 4e08d0551610ccfad2aeab111df76fcd46b504fa
     </bytecodeTargetLevel>
   </component>
 </project>

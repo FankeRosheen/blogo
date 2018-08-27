@@ -1,0 +1,3 @@
+{"flag":true,"message":"查询成功","user":{"id":2,"img":null,"name":"Rosheen","password":"","age":null,"email":"1521151079@qq.com","phoneNumber":null,"gender":null,"bankCard":"","realName":null,"address":null,"status":null,"passport":"","historyImg":null,"historyPassword":null,"idcard":""}}
+
+{"flag":true,"message":"查询成功","user":{"id":1,"img":"http://thirdwx.qlogo.cn/mmopen/vi_32/3dyibo1XktcB9Pib9aTQE0rAF71xnRrzVIpTlQgSwHCMlG5cZwva06ficIZIva8WvIMicHabYeCPgZiaAJyiboP9VfXA/132","name":"fk","password":"","age":null,"email":"172156162@qq.com","phoneNumber":null,"gender":null,"bankCard":"","realName":null,"address":null,"status":null,"passport":"","historyImg":"nullnull","historyPassword":null,"idcard":""}}

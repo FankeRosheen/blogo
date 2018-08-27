@@ -4,6 +4,7 @@ import com.example.blogo.myblogo.account.dao.LoginDao;
 import com.example.blogo.myblogo.account.domain.User;
 import com.example.blogo.myblogo.account.views.ResponseMessage;
 import com.example.blogo.myblogo.account.views.TotalUser;
+import org.apache.logging.log4j.message.ReusableMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +64,7 @@ public class LoginService {
         }
     }
 
+<<<<<<< HEAD
     public ResponseMessage check(String userName, String password, String emial) {
         if (userName == "" || userName == null){
             return new ResponseMessage(true,"请输入用户名");
@@ -74,5 +76,14 @@ public class LoginService {
                 return new ResponseMessage(true,"用户名已被使用");
             }
         }
+=======
+    public ResponseMessage checkUserName(String userName) {
+        if (loginDao.findAllByName(userName) != null){
+            return new ResponseMessage(false,"用户名已被使用");
+        }else {
+            return new ResponseMessage(true,"用户名可用");
+        }
+
+>>>>>>> 4e08d0551610ccfad2aeab111df76fcd46b504fa
     }
 }

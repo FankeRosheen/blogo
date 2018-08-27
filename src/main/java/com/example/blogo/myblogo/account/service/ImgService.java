@@ -19,16 +19,16 @@ public class ImgService {
     public ResponseMessage changeImg(String userName, String img) {
         try {
             User user = imgDao.findAllByName(userName);
+            if (img.equals(user.getImg())) {
+                return new ResponseMessage(false, "修改图片成功");
+            }
             user.setHistoryImg(user.getHistoryImg() + user.getImg());
             user.setImg(img);
-            if (imgDao.save(user) == null){
-                return new ResponseMessage(false,"修改图片成功");
-            }else {
-                return new ResponseMessage(false,"修改图片失败");
-            }
-        }catch (Exception e){
+            imgDao.save(user);
+            return new ResponseMessage(false, "修改图片成功");
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseMessage(false,"修改图片失败");
+            return new ResponseMessage(false, "修改图片失败");
         }
     }
 }
