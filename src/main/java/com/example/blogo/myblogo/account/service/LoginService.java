@@ -49,6 +49,10 @@ public class LoginService {
         user.setPassword(password);
         user.setEmail(emial);
         try {
+            ResponseMessage check = check(userNme, password, emial);
+            if (check.getMessage() == "用户名已被使用"){
+                return check;
+            }
             if (loginDao.save(user) != null) {
                 return new ResponseMessage(true, "注册成功");
             } else {
@@ -59,4 +63,16 @@ public class LoginService {
         }
     }
 
+    public ResponseMessage check(String userName, String password, String emial) {
+        if (userName == "" || userName == null){
+            return new ResponseMessage(true,"请输入用户名");
+        }else {
+            User user = loginDao.findByName(userName);
+            if (user == null){
+                return new ResponseMessage(true,"用户名可用");
+            }else {
+                return new ResponseMessage(true,"用户名已被使用");
+            }
+        }
+    }
 }
